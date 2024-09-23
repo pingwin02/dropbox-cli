@@ -22,18 +22,18 @@ async function handleCommand(line, dbx, currentPath) {
       break;
 
     case "get":
-      if (args.length < 2) {
-        console.log("Usage: get <remote_path> <local_path>");
+      if (args.length < 1) {
+        console.log("Usage: get <remote_path> [local_path]");
       } else {
-        await getFile(dbx, currentPath, args[0], args[1]);
+        await getFile(dbx, currentPath, args[0], args[1] || ".");
       }
       break;
 
     case "put":
-      if (args.length < 2) {
-        console.log("Usage: put <local_path> <remote_path>");
+      if (args.length < 1) {
+        console.log("Usage: put <local_path> [remote_path]");
       } else {
-        await putFile(dbx, currentPath, args[0], args[1]);
+        await putFile(dbx, currentPath, args[0], args[1] || "");
       }
       break;
 
@@ -97,7 +97,7 @@ async function handleCommand(line, dbx, currentPath) {
       break;
   }
 
-  return currentPath; // Return the updated current path after command execution
+  return currentPath;
 }
 
 module.exports = handleCommand;

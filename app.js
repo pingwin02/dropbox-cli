@@ -14,7 +14,6 @@ let currentPath = "/";
   const dbx = await getDropboxInstance();
   rl.prompt();
 
-  // Handle command input
   rl.on("line", async (line) => {
     currentPath = await handleCommand(line, dbx, currentPath);
     rl.prompt();

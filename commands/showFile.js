@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-async function cat(dbx, currentPath, remoteFilePath) {
+async function showFile(dbx, currentPath, remoteFilePath) {
   try {
     const response = await dbx.filesDownload({
       path:
@@ -8,11 +8,11 @@ async function cat(dbx, currentPath, remoteFilePath) {
           ? `/${remoteFilePath}`
           : `${currentPath}/${remoteFilePath}`,
     });
-    const content = response.result.fileBinary.toString("utf-8"); // Convert binary to string
+    const content = response.result.fileBinary.toString("utf-8");
     console.log(content);
   } catch (error) {
     console.error("Error retrieving file content:", error.error?.error_summary);
   }
 }
 
-module.exports = cat;
+module.exports = showFile;
