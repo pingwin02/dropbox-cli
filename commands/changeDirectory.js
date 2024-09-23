@@ -14,7 +14,7 @@ async function changeDirectory(dbx, currentPath, newPath) {
     console.log(`Changed directory to: ${targetPath}`);
     return targetPath;
   } catch (error) {
-    console.error("Error changing directory:", error.error?.error_summary);
+    console.error("Error changing directory:", error);
     return currentPath;
   }
 }

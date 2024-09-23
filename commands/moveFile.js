@@ -8,7 +8,7 @@ async function moveFile(dbx, currentPath, srcPath, destPath) {
     });
     console.log(`Moved ${srcPath} to ${destPath}`);
   } catch (error) {
-    console.error("Error moving file:", error.error);
+    console.error("Error moving file:", error);
   }
 }
 

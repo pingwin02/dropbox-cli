@@ -8,7 +8,7 @@ async function copyFile(dbx, currentPath, srcPath, destPath) {
     });
     console.log(`Copied ${srcPath} to ${destPath}`);
   } catch (error) {
-    console.error("Error copying file:", error.error);
+    console.error("Error copying file:", error);
   }
 }
 

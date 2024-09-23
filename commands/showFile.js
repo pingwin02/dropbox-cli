@@ -11,7 +11,7 @@ async function showFile(dbx, currentPath, remoteFilePath) {
     const content = response.result.fileBinary.toString("utf-8");
     console.log(content);
   } catch (error) {
-    console.error("Error retrieving file content:", error.error?.error_summary);
+    console.error("Error retrieving file content:", error);
   }
 }
 

@@ -12,7 +12,7 @@ async function diskUsage(dbx) {
       "GB",
     );
   } catch (error) {
-    console.error("Error fetching disk usage:", error.error);
+    console.error("Error fetching disk usage:", error);
   }
 }
 

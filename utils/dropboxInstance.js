@@ -9,13 +9,19 @@ async function getDropboxInstance() {
     return dbx;
   } catch (error) {
     if (error.status >= 400 && error.status < 500) {
-      console.log("Token expired, refreshing...");
-      await refreshAccessToken();
-      dbx = new Dropbox({ accessToken: process.env.DROPBOX_ACCESS_TOKEN });
-      console.log("Welcome to Dropbox CLI!");
-      return dbx;
+      try {
+        console.log("Token expired, refreshing...");
+        await refreshAccessToken();
+        dbx = new Dropbox({ accessToken: process.env.DROPBOX_ACCESS_TOKEN });
+        console.log("Welcome to Dropbox CLI!");
+        return dbx;
+      } catch (error) {
+        console.error(`Error while refreshing token: ${error}`);
+        return null;
+      }
     } else {
-      throw error;
+      console.error(`Error while getting Dropbox instance: ${error}`);
+      return null;
     }
   }
 }

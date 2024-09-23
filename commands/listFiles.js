@@ -43,7 +43,7 @@ async function listFiles(dbx, currentPath, newPath = "") {
         );
       });
   } catch (error) {
-    console.error("Error fetching folder contents:", error.error);
+    console.error("Error fetching folder contents:", error);
   }
 }
 

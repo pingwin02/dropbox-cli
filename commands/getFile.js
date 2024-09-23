@@ -16,7 +16,7 @@ async function getFile(dbx, currentPath, remotePath, localPath = ".") {
     fs.writeFileSync(fullLocalPath, response.result.fileBinary, "binary");
     console.log(`File downloaded to ${fullLocalPath}`);
   } catch (error) {
-    console.error("Error downloading file:", error.error);
+    console.error("Error downloading file:", error);
   }
 }
 
