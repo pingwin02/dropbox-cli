@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ quiet: true });
 const readline = require("readline");
 const handleCommand = require("./commandHandler");
 const { getDropboxInstance } = require("./utils/dropboxInstance");
